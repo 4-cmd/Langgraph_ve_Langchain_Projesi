@@ -1,7 +1,7 @@
 **Projemiziz çalışması için Yapılacak İlk Şeyler**
 * **Bilgiler.env** adında yeni bir dosya yaratılmalıdır
 * **https://admin.mistral.ai/organization** sitesinden bir mistral api key alınmalıdır
-* **Bilgiler.env **dosyasının içine
+* **Bilgiler.env** dosyasının içine
 * MISTRAL_API_KEY = Mistral'den aldınız api key buraya koyun
 * Bu işlemde llm'in çalışması için gerekli olan api key verildiği için artık projemizde llm çalışabilir
 

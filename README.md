@@ -1,3 +1,10 @@
+Projemiziz çalışması için Yapılacak İlk Şeyler
+* Bilgiler.env adında yeni bir dosya yaratılmalıdır
+* 
+
+
+
+
 📄 Akıllı Hukuk & Doküman Yönetim Asistanı
 Bu proje,LangGraph ve Langchain kullanılarak yapılmıştır 
 

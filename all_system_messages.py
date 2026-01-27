@@ -2,6 +2,10 @@ from datetime import datetime
 from langchain_core.messages import SystemMessage
 import streamlit as st
 
+
+if "document_database" not in st.session_state:
+    st.session_state.document_database = {}
+
 removing_system_message = SystemMessage(f"""
 Sen bir yapay zeka asistanısın ve görevlerin                                       
 * Kullanıcı sana silmek istediği bir dosyanın ismini gönderecek
@@ -14,7 +18,7 @@ def removing_system_message_function():
     return removing_system_message
 
 
-llm_call_router = SystemMessage(
+llm_call_router_system_message = SystemMessage(
     content="""Kullanıcı girdisini aşağıdaki 4 niyetten birine yönlendir:
                     - 'add_document' : Kullanıcı bir şey eklemek istiyorsa, buraya yönlendir
                     - 'delete_document' : Kullanıcı bir şey silmek istiyorsa,  buraya yönlendir
@@ -25,7 +29,7 @@ llm_call_router = SystemMessage(
 )
 
 def llm_call_router_system_message_function():
-    return llm_call_router
+    return llm_call_router_system_message
 
 
 ask_document_tool_system_message = SystemMessage(content=f""" If the user requests information about a document, respond using this database: {st.session_state.document_database}

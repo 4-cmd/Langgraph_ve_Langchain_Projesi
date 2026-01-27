@@ -19,8 +19,7 @@ api_key = getenv("MISTRAL_API_KEY")
 
 # openai/gpt-oss-120b
 
-if "document_database" not in st.session_state:
-    st.session_state.document_database = {}
+
 
 
 print("Streamlit baştan çalışıyor")
@@ -28,6 +27,7 @@ print("Streamlit baştan çalışıyor")
 if "messages" not in st.session_state:
     print("st.session_state.messages was created")
     st.session_state.messages = []
+    
 
 llm = ChatMistralAI(model_name="mistral-large-2512",api_key=api_key)
 

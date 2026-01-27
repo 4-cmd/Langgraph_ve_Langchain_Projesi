@@ -1,6 +1,6 @@
 from typing_extensions import TypedDict, Literal
 from langgraph.graph import StateGraph, START, END
-from langchain_core.messages import HumanMessage, SystemMessage,AIMessage
+from langchain_core.messages import HumanMessage, SystemMessage
 from pydantic import BaseModel, Field
 from langgraph.checkpoint.memory import InMemorySaver
 import streamlit as st
@@ -8,10 +8,11 @@ from datetime import datetime
 from dotenv import load_dotenv
 from os import getenv
 from langchain_mistralai.chat_models import ChatMistralAI
-from BaseModel import Adding_to_Document_Database,Removing_from_Document_Database
+from BaseModel import Adding_to_Document_Database,Removing_from_Document_Database,Route
 from Adding_system_message import adding_system_message_function
 from all_system_messages import removing_system_message_function,llm_call_router_system_message_function,ask_document_tool_system_message_function,list_documents_system_message_function
 from streamlit_işlemleri import adding_the_state_message,printing_the_message
+from graph_çizdirme import graph_cizdirme
 
 load_dotenv("Bilgiler.env",verbose=True)
 api_key = getenv("MISTRAL_API_KEY")
@@ -38,8 +39,7 @@ class State(TypedDict):
 
 
 
-class Route(BaseModel):
-    step : Literal["add_document","delete_document","ask_document","list_documents"] = Field(None,description="The next step in the routing process")
+
 
 router = llm.with_structured_output(Route)
 
@@ -208,6 +208,8 @@ try:
     # Compile workflow
     memory = InMemorySaver()
     router_workflow = router_builder.compile(checkpointer=memory)
+    png_data = router_workflow.get_graph().draw_mermaid_png()
+    graph_cizdirme(png_data)
     sayaç = 0
     config = {"configurable": {"thread_id": "1"}}
 

@@ -22,6 +22,7 @@ api_key = getenv("MISTRAL_API_KEY")
 
 
 
+
 print("Streamlit baştan çalışıyor")
 
 if "messages" not in st.session_state:

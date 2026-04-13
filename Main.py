@@ -23,6 +23,7 @@ api_key = getenv("MISTRAL_API_KEY")
 
 
 
+
 print("Streamlit baştan çalışıyor")
 
 if "messages" not in st.session_state:
@@ -30,7 +31,7 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
     
 
-llm = ChatMistralAI(model_name="mistral-large-2512",api_key=api_key)
+llm = ChatMistralAI(name="mistral-large-2512",api_key=api_key)
 
 class State(TypedDict):
     input : str 
@@ -231,4 +232,4 @@ try:
 except Exception as Hata:
     print("Hata : ",Hata)
 
-  # py -m streamlit run New_Full_Project.py
+  # py -m streamlit run Main.py

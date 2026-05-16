@@ -9,7 +9,7 @@
 - Bilgisayarımızda **python -m venv venv** adında yeni bir sanal ortam oluşturmalısınız
 - Ardından sanal ortamı **venv\Scripts\activate** diyerek aktif etmelisiniz
 - Sonra da Kullanıdığınız mevcut IDE'da (VS Code or Pycharm)** Select Interpeter **diyerek Projemizde az önce oluşturduğumuz **venv** dosyasını seçmelisiniz
-- Sonra da terminal ekranına **pip install -r requirements.txt** yazarak projemiz için gerekli paketleri kurmalısınzs
+- Sonra da terminal ekranına **pip install -r requirements.txt** yazarak projemiz için gerekli paketleri kurmalısınız
 
 Son olarak terminal ekranını açıp **streamlit run New_Full_Project.py** ve projemizi artık ek bir işlem yapmadan rahatlıkla kullanabilirsiniz
 
